@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import ErrorPage from "@/pages/error";
 import Doencas from "@/pages/doencas";
 import AcompanharCasos from "@/pages/acompanharCasos";
+import EncontrarPostos from "@/pages/encontrarPostos";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -13,6 +14,8 @@ const AppRoutes: React.FC = () => {
       <Route path="/" element={<Home />} />
       <Route path="Doencas/:tipo" element={<Doencas />} />
       <Route path="AcompanharCasos" element={<AcompanharCasos />} />
+      <Route path="VerificarCasos" element={<AcompanharCasos />} />
+      <Route path="EncontrarPostos" element={<EncontrarPostos />} />
       {/* Rota de erro */}
       <Route path="*" element={<ErrorPage />} />
     </Routes>

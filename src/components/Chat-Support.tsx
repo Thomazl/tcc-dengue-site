@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -7,16 +8,17 @@ import {
   ChatBubble,
   ChatBubbleAvatar,
   ChatBubbleMessage,
-} from "./chat/chat-bubble";
-import { ChatInput } from "./chat/chat-input";
+} from "./chat/Chat-bubble";
+import { ChatInput } from "./chat/Chat-input";
 import {
   ExpandableChat,
   ExpandableChatHeader,
   ExpandableChatBody,
   ExpandableChatFooter,
-} from "./chat/chat-expandable";
-import { ChatMessageList } from "./chat/chat-message-list";
+} from "./chat/Chat-expandable";
+import { ChatMessageList } from "./chat/Chat-message-list";
 import { AnimatePresence, motion } from "framer-motion";
+import axios from "axios";
 
 interface Message {
   id: string;
@@ -39,7 +41,8 @@ export default function ChatSupport() {
     initialChatSupportMessages,
   );
   const [inputMessage, setInputMessage] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false); 
+  
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,7 +52,7 @@ export default function ChatSupport() {
     }
   }, [messages]);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputMessage.trim()) {
       const newMessage: Message = {
         id: Date.now().toString(),
@@ -59,6 +62,54 @@ export default function ChatSupport() {
       };
       setMessages([...messages, newMessage]);
       setInputMessage("");
+
+      const loadingMessage: Message = {
+        id: Date.now().toString(),
+        content: "Gerando resposta...", // Mostrando que a resposta está sendo gerada
+        sender: "ai",
+        timestamp: new Date().toLocaleTimeString(),
+      };
+  
+      setMessages((prevMessages) => [...prevMessages, loadingMessage]);
+      setIsLoading(true); // Mostrar que está carregando
+  
+      try {
+        // Fazer a requisição para a API de forma assíncrona
+        const response = await axios.post(
+          "http://localhost:3000/chat",
+          { pergunta: inputMessage }, 
+          {
+            headers: { 'Content-Type': 'application/json' }
+          }
+        );
+  
+        const data = response.data;
+  
+        // Remover a mensagem de "carregando" e adicionar a resposta da API
+        setMessages((prevMessages) => [
+          ...prevMessages.slice(0, -1), // Remove a última mensagem (loading)
+          {
+            id: Date.now().toString(),
+            content: data.resposta, // A resposta da API
+            sender: "ai",
+            timestamp: new Date().toLocaleTimeString(),
+          },
+        ]);
+      } catch (error) {
+        console.error("Error fetching AI response:", error);
+        setMessages((prevMessages) => [
+          ...prevMessages.slice(0, -1), // Remove a última mensagem (loading)
+          {
+            id: Date.now().toString(),
+            content: "Erro ao gerar resposta.",
+            sender: "ai",
+            timestamp: new Date().toLocaleTimeString(),
+          },
+        ]);
+      } finally {
+        setIsLoading(false); // Esconde o status de carregamento
+        setInputMessage(''); // Limpar o input
+      }
     }
   };
 

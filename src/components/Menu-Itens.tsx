@@ -51,7 +51,7 @@ export const MenuItens: React.FC = () => {
             <ListItem href="AcompanharCasos" title="Acompanhar Casos">
               Veja em tempo real os casos de doenças transmitidas pelo Aedes.
             </ListItem>
-            <ListItem href="" title="Encontrar Postos">
+            <ListItem href="EncontrarPostos" title="Encontrar Postos">
               Encontre postos de saúde próximos a você.
             </ListItem>
           </ul>
