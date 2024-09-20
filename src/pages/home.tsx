@@ -8,11 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 const Home: React.FC = () => {
   return (
     <div>
-      <div className="w-full flex flex-col content-center h-56 justify-center flex-wrap text-center bg-cyan-200">
+      <div className="w-full flex flex-col content-center h-56 justify-center flex-wrap text-center">
         <h1 className="text-3xl mb-4">
           Seu Guia Completo sobre Doenças Transmitidas pelo Aedes Aegypti
         </h1>
@@ -21,7 +22,8 @@ const Home: React.FC = () => {
           Urbana
         </h3>
       </div>
-    <div className="w-full flex flex-wrap justify-center content-center gap-4">
+      <Separator />
+    <div className="w-full flex flex-wrap justify-center content-center gap-4 pt-6">
       <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
         <CardHeader>
         <CardTitle>Doenças Transmitidas pelo Aedes aegypti</CardTitle>

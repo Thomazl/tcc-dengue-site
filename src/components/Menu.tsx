@@ -8,11 +8,11 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import Logo from "@/assets/log.png";
-import { MenuItens } from "./MenuItens";
+import { MenuItens } from "./Menu-Itens";
 
 export const Menu: React.FC = () => {
   return (
-    <nav className="p-4 bg-cyan-200 dark:bg-gray-800 shadow-md flex items-center">
+    <nav className="p-4 bg-white dark:bg-gray-800 shadow-md flex items-center">
       <div className="flex w-6/12 items-center justify-between">
         <NavigationMenu className="ml-32">
           <NavigationMenuList>

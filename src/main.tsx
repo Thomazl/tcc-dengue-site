@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/routes";
 import { Menu } from "./components/Menu";
 import "./index.css";
-import ChatSupport from "./components/ChatSupport";
+import ChatSupport from "./components/Chat-Support";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
