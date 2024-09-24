@@ -45,7 +45,7 @@ export const MenuItens: React.FC = () => {
         <NavigationMenuTrigger>Entenda mais</NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-            <ListItem href="" title="Verificar Sintomas">
+            <ListItem href="Sintomas" title="Verificar Sintomas">
               Faça um teste e verifique caso você tenha sintomas de alguma doença.
             </ListItem>
             <ListItem href="AcompanharCasos" title="Acompanhar Casos">

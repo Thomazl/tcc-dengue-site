@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { SignInForm } from "@/components/SignIn";
 
 const Home: React.FC = () => {
   return (
@@ -23,53 +24,54 @@ const Home: React.FC = () => {
         </h3>
       </div>
       <Separator />
-    <div className="w-full flex flex-wrap justify-center content-center gap-4 pt-6">
-      <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
-        <CardHeader>
-        <CardTitle>Doenças Transmitidas pelo Aedes aegypti</CardTitle>
-        </CardHeader>
-        <CardContent>
-        <CardDescription>
-          Descubra as principais doenças causadas pelo mosquito Aedes
-          aegypti e como preveni-las.
-        </CardDescription>
-        </CardContent>
-      </Card>
-      <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
-        <CardHeader>
-        <CardTitle>Sintomas e Sinais de Alerta</CardTitle>
-        </CardHeader>
-        <CardContent>
-        <CardDescription>
-          Identifique os sintomas das doenças transmitidas pelo Aedes
-          aegypti.
-        </CardDescription>
-        </CardContent>
-      </Card>
-      <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
-        <CardHeader>
-        <CardTitle>Acompanhamento de Casos e Surtos</CardTitle>
-        </CardHeader>
-        <CardContent>
-        <CardDescription>
-          Acompanhe a disseminação do mosquito e os surtos de doenças em sua
-          região.
-        </CardDescription>
-        </CardContent>
-      </Card>
-      <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
-        <CardHeader>
-        <CardTitle>Postos de Saúde Próximos a Você</CardTitle>
-        </CardHeader>
-        <CardContent>
-        <CardDescription>
-          Saiba onde encontrar suporte específico para dengue e outras
-          doenças.
-        </CardDescription>
-        </CardContent>
-      </Card>
-    </div>
+      <div className="w-full flex flex-wrap justify-center content-center gap-4 pt-6">
+        <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
+          <CardHeader>
+            <CardTitle>Doenças Transmitidas pelo Aedes aegypti</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              Descubra as principais doenças causadas pelo mosquito Aedes
+              aegypti e como preveni-las.
+            </CardDescription>
+          </CardContent>
+        </Card>
+        <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
+          <CardHeader>
+            <CardTitle>Sintomas e Sinais de Alerta</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              Identifique os sintomas das doenças transmitidas pelo Aedes
+              aegypti.
+            </CardDescription>
+          </CardContent>
+        </Card>
+        <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
+          <CardHeader>
+            <CardTitle>Acompanhamento de Casos e Surtos</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              Acompanhe a disseminação do mosquito e os surtos de doenças em sua
+              região.
+            </CardDescription>
+          </CardContent>
+        </Card>
+        <Card className="w-full sm:w-5/12 md:w-5/12 border-l border-r">
+          <CardHeader>
+            <CardTitle>Postos de Saúde Próximos a Você</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              Saiba onde encontrar suporte específico para dengue e outras
+              doenças.
+            </CardDescription>
+          </CardContent>
+        </Card>
+      </div>
       <Section children={"texto"} />
+      <SignInForm />
     </div>
   );
 };
