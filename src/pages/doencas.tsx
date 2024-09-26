@@ -1,4 +1,8 @@
 "use client"
+import ChikungunyaInfo from "@/components/doencas/Chikungunya";
+import DengueInfo from "@/components/doencas/Dengue";
+import FebreAmarela from "@/components/doencas/FebreAmarela";
+import ZikaInfo from "@/components/doencas/Zika";
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 
@@ -9,29 +13,19 @@ const Doencas: React.FC = () => {
     switch (tipo) {
       case "Dengue":
         return (
-          <p>
-            Dengue é uma doença viral transmitida pelo mosquito Aedes aegypti.
-          </p>
+          <DengueInfo />
         );
       case "ZikaVirus":
         return (
-          <p>
-            Zika é uma doença causada pelo vírus Zika, também transmitida pelo
-            Aedes aegypti.
-          </p>
+          <ZikaInfo />
         );
       case "Chikungunya":
         return (
-          <p>
-            Chikungunya é uma doença viral transmitida pelo mosquito Aedes
-            aegypti e Aedes albopictus.
-          </p>
+          <ChikungunyaInfo />
         );
       case "FebreAmarela":
         return (
-          <p>
-            Febre Amarela é uma doença viral transmitida por mosquitos em áreas tropicais.
-          </p>
+          <FebreAmarela />
         );
       default:
         return <Navigate to="/erro" />
@@ -40,7 +34,7 @@ const Doencas: React.FC = () => {
 
   return (
     <div>
-      <h1>Informações sobre Doenças</h1>
+      <h1 className="w-full text-center mt-4 text-6xl font-bold bg-gradient-to-r from-cyan-200 to-cyan-400 bg-clip-text text-transparent">Informações sobre Doenças</h1>
       {renderContent()}
     </div>
   );

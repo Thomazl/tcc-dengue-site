@@ -37,7 +37,7 @@ const EncontrarPostos: React.FC = () => {
                         const service = new google.maps.places.PlacesService(map);
                         const request: google.maps.places.PlaceSearchRequest = {
                             location: userLocation,
-                            radius: 5000,
+                            radius: 40000,
                             type: 'hospital',
                         };
 
